@@ -14,6 +14,7 @@ const Nav = () => {
       <div className='app__navbar-logo'>
         <img src= {Images.logo} alt="Logo" />
       </div>
+
       <ul className='app__navbar-links'>
           {['home', 'about', 'work', 'skills', 'contact'].map((item) =>
           (
@@ -25,28 +26,28 @@ const Nav = () => {
         </ul>
 
         <div className="app__navbar-menu">
-            <HiIcons.HiOutlineMenuAlt2 onClick={() => setToggle(true)} />
+            <HiIcons.HiOutlineMenuAlt2 onClick={() => setToggle(true) } className='app__navbar-icon' />
+
             {
               toggle && (
                 <motion.div 
-                  whileInView={{ x: [300, 0] }}
-                  transition={{ duration: 0.8, ease: 'easeInOut'}}
-                >
+                  whileInView={{ x: [200, 30] }}
+                  initial= {{x: "50%", y: "1%", opacity: 0, scale: 0.5}}
+                  animate={{x: 0, y: 0, opacity: 1, scale: 1}}
+                  transition={{ duration: 0.5, ease: 'easeInOut'}}>
 
-                  <HiIcons.HiX onClick={() => setToggle(false)}/>
+                  <HiIcons.HiX onClick={ () => setToggle(false) } className='app__navbar-icon'/>
 
                   <ul>
 
                     {['home', 'about', 'work', 'skills', 'contact'].map((item) =>
                     (
                       <li key= {item}>
-                        <div />
-                        <a href={`#${item}`} onClick={() => setToggle(false)}> {item} </a>
+                          <a href={`#${item}`} onClick={() => setToggle(false)}> {item} </a>  
                       </li>
                     ))}
 
                   </ul>
-                  
                 </motion.div>
               )
             }
