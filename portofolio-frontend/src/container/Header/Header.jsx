@@ -5,8 +5,22 @@ import { Images } from '../../constants';
 
 
 const Header = () => {
+
+  const scaleVariants = {
+
+    whileInView: { 
+      scale: [0, 1],
+      opacity: [0, 1],
+      tansition: {
+        duration: 1.5,
+        ease: 'easeInOut'
+      }
+    }
+
+  }
+
   return (
-    <div className='app__header app__flex'>
+    <div id= 'home' className= 'app__header app__flex'>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition= {{ duration: 1 }}
@@ -47,13 +61,22 @@ const Header = () => {
           className= 'overlay-circle'
           src= {Images.circle}
           alt = 'profile circle'
-        >
+        />
 
-        </motion.img>
       </motion.div>
 
-      <motion.div>
-        
+      <motion.div
+        variant = {scaleVariants}
+        whileInView = {scaleVariants.whileInView}
+        className= 'app__header-circles'
+      >
+        {
+          [Images.sass, Images.react, Images.javascript].map((circle, index) => (
+            <div className= 'circle-cmp app__flex' key={ `circle-${index}` }>
+              <img src= {circle} alt="skills circles" />
+            </div>
+          ))
+        }
       </motion.div>
     </div>
   )
