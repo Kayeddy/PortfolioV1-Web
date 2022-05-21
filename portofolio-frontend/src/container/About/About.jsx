@@ -7,6 +7,9 @@ import { Images } from '../../constants';
 
 import { urlFor, client } from '../../Sanity_client';
 
+import { AppWrap } from '../../Wrapper';
+
+
 const About = () => {
 
   const [abouts, setAbouts] = useState([]);
@@ -48,4 +51,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AppWrap(About, 'about');
