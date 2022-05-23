@@ -3,6 +3,7 @@ export default{
     title:'Skills',
     type: 'document',
     fields:[
+        
         {
             name:'name',
             title:'Name',
