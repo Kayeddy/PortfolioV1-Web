@@ -8,17 +8,22 @@ const SocialMedia = () => {
   return (
     <div className='app__social'>
 
-        <div style={{ cursor: 'pointer'}}>
-            <BsIcons.BsLinkedin />
+        <div style={{ cursor: 'pointer', textAlign: 'center'}}>
+            <a target='-blank' href="https://www.linkedin.com/in/edushed" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+                <BsIcons.BsLinkedin />
+            </a>
         </div>
+
         <div style={{ cursor: 'pointer'}}>
-            <BsIcons.BsInstagram />
+            <a target='-blank' href="https://www.instagram.com/_.kayeddy._/" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+                <BsIcons.BsInstagram />
+            </a>
         </div>
+
         <div style={{ cursor: 'pointer'}}>
-            <BsIcons.BsFacebook />
-        </div>
-        <div style={{ cursor: 'pointer'}}>
-            <BsIcons.BsGithub />
+            <a target='-blank' href="https://github.com/Kayeddy" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+                <BsIcons.BsGithub />
+            </a>    
         </div>
         
     </div>

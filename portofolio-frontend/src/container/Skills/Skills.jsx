@@ -1,14 +1,19 @@
 import { React, useState, useEffect } from 'react';
-import {MDCTooltip} from '@material/tooltip';
+import { Tooltip } from '@mui/material';
+import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 import { motion } from 'framer-motion';
 
-import { AppWrap } from '../../Wrapper';
+import { AppWrap, MotionWrap } from '../../Wrapper';
+
 import { urlFor, client } from '../../Sanity_client';
 
 import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 
 import './Skills.scss';
+import { lineHeight } from '@mui/system';
 
 
 const Skills = () => {
@@ -31,6 +36,28 @@ const Skills = () => {
 
   }, [])
 
+  const theme = createTheme({
+    components: {
+      MuiTooltip: {
+        styleOverrides: {
+
+          tooltip: {
+            maxWidth: '300px',
+            backgroundColor: 'var(--white-color)',
+            boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)',
+            borderRadius: '5px',
+            padding: '1rem',
+            color: 'var(--gray-color)',
+            textAlign: 'center',
+            lineHeight: '1.5',
+            opacity: '1',
+            fontSize: '0.9rem',
+          }
+
+        }
+      }
+    }
+  });
   return (
     <>
       <h2 className='head-text'> Skills & Experience </h2>
@@ -80,28 +107,27 @@ const Skills = () => {
                   {
                      experience.works.map((works) => (
                       <>
-                        <motion.div
-                            whileInView={{ opacity: [0, 1] }}
-                            transition= {{ duration: 0.5 }}
-                            className= 'app__skills-exp-work app__flex'
-                            data-tip
-                            data-for= { works.name }
-                            key={ works.name }
-                        >
-                          <h4 className='bold-text'>
-                            { works.name }
-                          </h4>
+                        <ThemeProvider theme={ theme }>
+                          <Tooltip title= {works.desc}>
+                            <motion.div
+                                whileInView={{ opacity: [0, 1] }}
+                                transition= {{ duration: 0.5 }}
+                                className= 'app__skills-exp-work app__flex'
+                                data-tip
+                                data-for= { works.name }
+                                key={ works.name }
+                            >
+                              <h4 className='bold-text'>
+                                { works.name }
+                              </h4>
+            
+                              <p className='p-text'> { works.company } </p>
+            
+                            </motion.div>
+                          </Tooltip>
+                        </ThemeProvider>
+                       
         
-                          <p className='p-text'> { works.company } </p>
-        
-                        </motion.div>
-
-                        <div id="tooltip-id" class="mdc-tooltip" role="tooltip" aria-hidden="true">
-                          <div class="mdc-tooltip__surface mdc-tooltip__surface-animation">
-                            lorem ipsum dolor
-                          </div>
-                        </div>
-                        
                       </>
                     ))
                   }
@@ -118,4 +144,8 @@ const Skills = () => {
   )
 }
 
-export default AppWrap(Skills, 'skills');
+export default AppWrap(
+  MotionWrap(Skills, 'app__skills'),
+  'skills',
+  'app__whitebg'
+);
