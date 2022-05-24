@@ -33,7 +33,7 @@ const Footer = () => {
 
     client.create(contact).then(() => {
       setLoading(false);
-      isFormSubmitted(true);
+      setIsFormSubmitted(true);
     })
   }
 
