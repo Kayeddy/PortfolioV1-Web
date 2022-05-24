@@ -3,7 +3,6 @@ import React, { useState, useEffect }from 'react';
 import './About.scss';
 
 import { motion } from 'framer-motion';
-import { Images } from '../../constants';
 
 import { urlFor, client } from '../../Sanity_client';
 

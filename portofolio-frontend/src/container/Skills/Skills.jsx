@@ -9,11 +9,8 @@ import { AppWrap, MotionWrap } from '../../Wrapper';
 
 import { urlFor, client } from '../../Sanity_client';
 
-import * as AiIcons from 'react-icons/ai';
-import * as BsIcons from 'react-icons/bs';
 
 import './Skills.scss';
-import { lineHeight } from '@mui/system';
 
 
 const Skills = () => {
