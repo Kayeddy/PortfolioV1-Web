@@ -9,19 +9,19 @@ const SocialMedia = () => {
     <div className='app__social'>
 
         <div style={{ cursor: 'pointer', textAlign: 'center'}}>
-            <a target='-blank' href="https://www.linkedin.com/in/edushed" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+            <a target='_blank' href="https://www.linkedin.com/in/edushed" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
                 <BsIcons.BsLinkedin />
             </a>
         </div>
 
         <div style={{ cursor: 'pointer'}}>
-            <a target='-blank' href="https://www.instagram.com/_.kayeddy._/" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+            <a target='_blank' href="https://www.instagram.com/_.kayeddy._/" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
                 <BsIcons.BsInstagram />
             </a>
         </div>
 
         <div style={{ cursor: 'pointer'}}>
-            <a target='-blank' href="https://github.com/Kayeddy" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
+            <a target='_blank' href="https://github.com/Kayeddy" rel='noreferrer' style={{ display: 'flex', alignItems: 'center'}}>
                 <BsIcons.BsGithub />
             </a>    
         </div>

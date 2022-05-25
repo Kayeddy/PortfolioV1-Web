@@ -3,6 +3,7 @@ import { urlFor, client } from '../../Sanity_client';
 import { AppWrap, MotionWrap } from '../../Wrapper';
 import { motion } from 'framer-motion';
 import { Images } from '../../constants';
+import emailjs from '@emailjs/browser';
 
 import './Footer.scss';
 
@@ -21,26 +22,35 @@ const Footer = () => {
     setFormData({...formData, [name]: value})
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    
+    e.preventDefault();
     setLoading(true);
 
     const contact = {
-      _type: 'contact',
       name: name,
       email: email,
       message: message,
     }
 
-    client.create(contact).then(() => {
-      setLoading(false);
-      setIsFormSubmitted(true);
-    })
+    emailjs.sendForm('service_vacoyo4', 'template_o39zons', e.target, '-cOckQz1uUaGbQH3F')
+      .then(() => {
+          setLoading(false);
+          setIsFormSubmitted(true);
+      }, (error) => {
+          console.log(error.text);
+      });
+   
   }
 
   return (
     <>
-      <h2 className='head-text'> ¿Does a coffee & a chat with me sound good? 😊 </h2>
 
+    {
+        !isFormSubmitted  &&    
+        <h2 className='head-text'> ¿Does a coffee & a chat with me sound good? 😊 </h2>
+    }
+   
       <div className='app__footer-cards'>
 
         <div className='app__footer-card'>
@@ -57,23 +67,28 @@ const Footer = () => {
 
       {
         !isFormSubmitted ?  
-        <div className='app__footer-form app__flex'>
-          <div className='app__flex'>
-            <input type="text" className='p-text' placeholder='Your name' name= 'name' value={name} onChange= {handleInputChange}/>
-          </div>
+        
+          <form onSubmit={handleSubmit} div className='app__footer-form app__flex'>
+            
+              <div className='app__flex'>
+                <input type="text" className='p-text' placeholder='Your name' name= 'name' value={name} onChange= {handleInputChange}/>
+              </div>
 
-          <div className='app__flex'>
-            <input type="text" className='p-text' placeholder='Your email address' name= 'email' value={email} onChange= {handleInputChange}/>
-          </div>
+              <div className='app__flex'>
+                <input type="text" className='p-text' placeholder='Your email address' name= 'email' value={email} onChange= {handleInputChange}/>
+              </div>
 
-          <div>
-            <textarea name= 'message' value= {message} cols="40" rows="8" placeholder='Your message' className='p-text' onChange={handleInputChange}></textarea>
-          </div>
+              <div className='app__flex'>
+                <textarea name= 'message' value= {message} cols="40" rows="8" placeholder='Your message' className='p-text' onChange={handleInputChange}></textarea>
+              </div>
 
-          <button type='button' className='p-text' onClick={handleSubmit}>
-            { loading ? 'sending your message': 'Send message' }
-          </button>
-      </div>
+              <button type='submit' value='send message' className='p-text'>
+                { loading ? 'sending your message': 'Send message' }
+              </button>
+       
+          </form>
+          
+    
 
       : <div>
           <h3 className='head-text'>

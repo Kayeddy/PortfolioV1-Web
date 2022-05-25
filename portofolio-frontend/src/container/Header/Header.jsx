@@ -40,8 +40,13 @@ const Header = () => {
           </div>
 
           <div className='tag-cmp app__flex'>
-          <p className='p-text'> Web developer  </p>
-          <p className='p-text'> Freelancer  </p>
+            <p className='p-text'> Web developer  </p>
+            <p className='p-text'> Freelancer  </p>
+          </div>
+
+          <div className='tag-cmp app__flex'>
+            <p className='p-text'> Download CV </p>
+            <a target= '_blank' href="https://docs.google.com/document/d/12vA1zvY1mk5Vun0r7Qklu2n8Gn9HS9ikX815IijK9e0/edit?usp=sharing" rel='norefererrer' style={{ textDecoration: 'none', cursor: 'pointer', color: '#000', fontWeight: '600'}}>  HERE ⬇️ </a>
           </div>
 
         </div>
