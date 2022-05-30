@@ -27,12 +27,6 @@ const Footer = () => {
     e.preventDefault();
     setLoading(true);
 
-    const contact = {
-      name: name,
-      email: email,
-      message: message,
-    }
-
     emailjs.sendForm('service_vacoyo4', 'template_o39zons', e.target, '-cOckQz1uUaGbQH3F')
       .then(() => {
           setLoading(false);
