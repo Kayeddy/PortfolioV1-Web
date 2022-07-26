@@ -1,7 +1,5 @@
-import { React, useState, useEffect } from 'react';
-import { urlFor, client } from '../../Sanity_client';
+import { React, useState } from 'react';
 import { AppWrap, MotionWrap } from '../../Wrapper';
-import { motion } from 'framer-motion';
 import { Images } from '../../constants';
 import emailjs from '@emailjs/browser';
 

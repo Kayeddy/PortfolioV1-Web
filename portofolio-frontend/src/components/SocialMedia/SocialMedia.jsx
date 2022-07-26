@@ -1,8 +1,5 @@
 import React from 'react';
-
 import * as BsIcons from 'react-icons/bs';
-import * as FaIcons from 'react-icons/fa';
-
 
 const SocialMedia = () => {
   return (
