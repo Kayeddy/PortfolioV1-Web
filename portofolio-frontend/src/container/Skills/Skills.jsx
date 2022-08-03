@@ -1,12 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import { Tooltip } from '@mui/material';
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import useMediaQuery from '@mui/material/useMediaQuery';
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { motion } from 'framer-motion';
-
 import { AppWrap, MotionWrap } from '../../Wrapper';
-
 import { urlFor, client } from '../../Sanity_client';
 
 
